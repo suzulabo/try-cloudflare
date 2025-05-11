@@ -1,0 +1,11 @@
+//$schema: "node_modules/wrangler/config-schema.json"
+{
+  "main": "src/index.ts",
+  "workflows": [
+    {
+      "name": "Workflow1",
+      "binding": "workflow1",
+      "class_name": "Workflow1"
+    }
+  ]
+}
