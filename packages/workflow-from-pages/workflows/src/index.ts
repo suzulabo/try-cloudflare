@@ -1,6 +1,11 @@
 /// <reference types="@cloudflare/workers-types" />
 
-import { WorkflowEntrypoint, type WorkflowEvent, WorkflowStep } from 'cloudflare:workers';
+import {
+  WorkerEntrypoint,
+  WorkflowEntrypoint,
+  type WorkflowEvent,
+  WorkflowStep,
+} from 'cloudflare:workers';
 
 interface Env {
   workflow1: Workflow;
@@ -8,6 +13,7 @@ interface Env {
 
 export class Workflow1 extends WorkflowEntrypoint<Env, Params> {
   override async run(_event: WorkflowEvent<Params>, step: WorkflowStep) {
+    console.log('Run Workflow1');
     await step.do('hello', async () => {
       for (let i = 1; i <= 5; i++) {
         //
@@ -18,6 +24,14 @@ export class Workflow1 extends WorkflowEntrypoint<Env, Params> {
       });
       return Promise.resolve('world');
     });
+  }
+}
+
+export class Workflow1Runner extends WorkerEntrypoint<Env> {
+  async createInstance() {
+    console.log('Create Worker1');
+    const res = await this.env.workflow1.create();
+    return Promise.resolve(Response.json(res));
   }
 }
 

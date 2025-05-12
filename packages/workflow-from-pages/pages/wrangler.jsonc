@@ -1,0 +1,13 @@
+//$schema: "node_modules/wrangler/config-schema.json"
+{
+  "name": "try-pages",
+  "pages_build_output_dir": "src",
+  "compatibility_date": "2025-05-11",
+  "services": [
+    {
+      "binding": "WORKFLOW1_RUNNER",
+      "service": "try-workers",
+      "entrypoint": "Workflow1Runner"
+    }
+  ]
+}
