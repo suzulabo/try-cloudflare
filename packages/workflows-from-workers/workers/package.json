@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev -c wrangler.jsonc -c ../workflows/wrangler.jsonc",
+    "deploy": "wrangler deploy"
+  }
+}
