@@ -48,13 +48,13 @@ importers:
         specifier: ^4.16.0
         version: 4.16.0(@cloudflare/workers-types@4.20250510.0)
 
-  packages/workflow-from-pages/pages: {}
-
-  packages/workflow-from-pages/workflows: {}
+  packages/unstable_startWorker: {}
 
   packages/workflows-from-pages/pages: {}
 
   packages/workflows-from-pages/workflows: {}
+
+  packages/workflows-from-workers/workers: {}
 
   packages/workflows-from-workers/workflows: {}
 
