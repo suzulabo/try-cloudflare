@@ -59,16 +59,7 @@ export class WorkflowStep {
   sleep: (name: string, duration: WorkflowSleepDuration) => Promise<void>;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
-export class WorkflowEntrypoint<Env = unknown, T extends Rpc.Serializable<T> | unknown = unknown> {
-  protected ctx: ExecutionContext;
-  protected env: Env;
-  constructor(ctx: ExecutionContext, env: Env) {
-    this.ctx = ctx;
-    this.env = env;
-  }
-  run(event: Readonly<WorkflowEvent<T>>, step: WorkflowStep): Promise<unknown> {
-    console.log(event, step);
-    return Promise.resolve();
-  }
+// eslint-disable-next-line @typescript-eslint/no-extraneous-class
+export class WorkflowEntrypoint {
+  //
 }
