@@ -1,0 +1,21 @@
+//$schema: "node_modules/wrangler/config-schema.json"
+{
+  "name": "try-workflows",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-05-11",
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "assets"
+  },
+  "workflows": [
+    {
+      "name": "Workflow1",
+      "binding": "WORKFLOW1",
+      "class_name": "Workflow1"
+    }
+  ]
+}
