@@ -24,6 +24,8 @@
     "noEmit": true,
 
     "target": "ESNext",
-    "module": "ESNext"
+    "module": "ESNext",
+    "lib": ["esnext"],
+    "types": ["@cloudflare/workers-types"]
   }
 }
