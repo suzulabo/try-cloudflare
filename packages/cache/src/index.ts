@@ -1,12 +1,18 @@
 export default {
-  fetch() {
-    const data = { message: 'Hello at ' + new Date().toISOString() };
-    const res = new Response(JSON.stringify(data), {
-      headers: {
-        'content-type': 'application/json',
-        'Cache-Control': 'public, s-maxage=86400, immutable',
-      },
-    });
+  async fetch(request: Request, _env, ctx) {
+    {
+      const res = await caches.default.match(request);
+      if (res) {
+        console.log(`CacheHit: [${request.url}]`);
+        return res;
+      }
+    }
+
+    console.log(`CacheMiss: [${request.url}]`);
+    const res = new Response(JSON.stringify({ date: new Date().toISOString() }));
+
+    ctx.waitUntil(caches.default.put(request, res.clone()));
+
     return res;
   },
-};
+} satisfies ExportedHandler<object>;
