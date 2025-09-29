@@ -8,8 +8,13 @@ export default {
       }
     }
 
+    const url = new URL(request.url);
+    const age = url.searchParams.get('age') ?? '10';
+
     console.log(`CacheMiss: [${request.url}]`);
-    const res = new Response(JSON.stringify({ date: new Date().toISOString() }));
+    const res = new Response(JSON.stringify({ date: new Date().toISOString() }, undefined, 2), {
+      headers: { 'cache-control': `s-maxage=${age}` },
+    });
 
     ctx.waitUntil(caches.default.put(request, res.clone()));
 
