@@ -1,0 +1,11 @@
+//$schema: "node_modules/wrangler/config-schema.json"
+{
+  "name": "try-workers",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-05-11",
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "preview_urls": true
+}
